@@ -14,7 +14,7 @@ public class Firework : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Rigidbody>().AddForce(Vector3.right * 5, ForceMode.VelocityChange);
+        //GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.VelocityChange);
     }
 
     void Explode()
