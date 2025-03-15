@@ -21,6 +21,8 @@ public class AI_Movement : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
         // Get the NavMeshAgent component attached to the character
         agent = GetComponent<NavMeshAgent>();
 
@@ -77,7 +79,7 @@ public class AI_Movement : MonoBehaviour
 
     void GetNewDirection()
     {
-        Vector3 posCloseToPlayer = new Vector3(target.position.x + Random.Range(-15, 16), target.position.y + Random.Range(-15, 16), target.position.z + Random.Range(-15, 16));
+        Vector3 posCloseToPlayer = new Vector3(target.position.x + Random.Range(-40, 41), target.position.y + Random.Range(-40, 41), target.position.z + Random.Range(-40, 41));
 
         if (NavMesh.SamplePosition(posCloseToPlayer, out NavMeshHit hit, 100, NavMesh.AllAreas))
         {
@@ -95,7 +97,9 @@ public class AI_Movement : MonoBehaviour
         if (angleToTarget <= fieldOfViewAngle * 0.5f && directionToTarget.magnitude <= detectionRange)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, directionToTarget.normalized, out hit, detectionRange))
+            int layerMask = ~LayerMask.GetMask("Obstacle"); // This ignores the Obstacle layer
+
+            if (Physics.Raycast(transform.position, directionToTarget.normalized, out hit, detectionRange, layerMask))
             {
                 if (hit.transform == target)
                 {
