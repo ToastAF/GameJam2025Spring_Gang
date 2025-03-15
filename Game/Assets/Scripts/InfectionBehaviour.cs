@@ -18,6 +18,7 @@ public class InfectionBehaviour : MonoBehaviour
     {
         currentInfection = 0;
         hasInfected = false;
+        UpdateInfection();
     }
 
     void Update()
