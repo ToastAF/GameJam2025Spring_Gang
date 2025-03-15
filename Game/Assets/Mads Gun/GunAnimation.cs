@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GunAnimation : MonoBehaviour
 {
-   ProjectileGun gunScript;
+   public ProjectileGun gunScript;
 
    public Animator anim;
 
@@ -42,10 +42,15 @@ public class GunAnimation : MonoBehaviour
        public void AnimationFin()
        {
            animationInPro = false;
-
-           gunScript.PopulateMagazine();
-           gunScript.reloading = false;
-           Debug.Log("Reloading done!");
        }
-   
+
+
+    public void ReloadAnimationFin()
+    {
+        animationInPro = false;
+
+        gunScript.PopulateMagazine();
+        gunScript.reloading = false;
+        Debug.Log("Reloading done!");
+    }
 }

@@ -55,9 +55,7 @@ public class ProjectileGun : MonoBehaviour
     {
         MyInput();
 
-        // Update ammo display if it exists
-        if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft + " / " + magazineSize);
+        ammunitionDisplay.SetText(bulletsLeft + " / " + magazineSize);
     }
 
     private void MyInput()
@@ -92,7 +90,7 @@ public class ProjectileGun : MonoBehaviour
         // Determine target point
         Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(75); //Bruger vi den her ?????????????
 
-        GameObject selectedBullet = activeBullets[0];  // Select a random bullet from the list
+        GameObject selectedBullet = activeBullets[activeBullets.Count-1];  // Select a random bullet from the list
 
         GameObject currentBullet = Instantiate(selectedBullet, attackPoint.position, Quaternion.identity);  // Instantiate the random bullet
 
@@ -105,11 +103,13 @@ public class ProjectileGun : MonoBehaviour
             bulletRb.AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
         }
 
+        gunAniScript.shoot();
+
         if (muzzleFlash != null)        // Instantiate muzzle flash if it exists
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
-        activeBullets.Remove(activeBullets[0]);
+        activeBullets.Remove(activeBullets[activeBullets.Count - 1]);
         UpdateBulletUI();
     }
 
@@ -125,6 +125,8 @@ public class ProjectileGun : MonoBehaviour
 
             //Populate UI
             activeSprites.Add(bulletContainers[temp].UIBullet);
+
+            bulletsLeft = magazineSize;
             UpdateBulletUI();
         }
     }
@@ -137,10 +139,10 @@ public class ProjectileGun : MonoBehaviour
             bulletUIElements[i].GetComponent<Image>().sprite = activeSprites[i];
         }
 
-        for(int i = bulletsLeft; i < magazineSize; i++) //Populate rest of UI with emptyBulletUI element
+        for (int i = bulletsLeft; i < magazineSize; i++) //Populate rest of UI with emptyBulletUI element
         {
             bulletUIElements[i].GetComponent<Image>().sprite = emptyBulletUI;
-        }        
+        }
     }
 
     private void Reload()
@@ -155,7 +157,7 @@ public class ProjectileGun : MonoBehaviour
     }
 
 
-    IEnumerator ReloadCD(float time)
+    /*IEnumerator ReloadCD(float time)
     {
         reloading = true;
         Debug.Log("Reloading!");
@@ -164,15 +166,15 @@ public class ProjectileGun : MonoBehaviour
         Debug.Log("Done reloading!");
         PopulateMagazine();
         reloading = false;
-    }
+    }*/
 
     IEnumerator ShootCD(float time)
     {
         readyToShoot = false;
-        Debug.Log("I shot!");
+        //Debug.Log("I shot!");
 
         yield return new WaitForSeconds(time);
-        Debug.Log("I can shoot again!");
+        //Debug.Log("I can shoot again!");
         readyToShoot = true;
 
     }
