@@ -13,6 +13,8 @@ public class ProjectileGun : MonoBehaviour
     public List<Sprite> activeSprites = new List<Sprite>();
     public Sprite emptyBulletUI;
 
+    public GunAnimation gunAniScript;
+
     // Bullet force
     public float shootForce, upwardForce;
 
@@ -26,7 +28,7 @@ public class ProjectileGun : MonoBehaviour
     public Rigidbody playerRb;
 
     // Bools
-    bool shooting, readyToShoot, reloading;
+    public bool shooting, readyToShoot, reloading;
 
     // References
     public Camera fpsCam;
@@ -141,7 +143,13 @@ public class ProjectileGun : MonoBehaviour
 
     private void Reload()
     {
-        StartCoroutine(ReloadCD(reloadTime));
+        reloading = true;
+        Debug.Log("Start reloading!");
+        //Now we call the reload animation
+        gunAniScript.reload();
+        
+        //Old Reloading
+        //StartCoroutine(ReloadCD(reloadTime));
     }
 
 
