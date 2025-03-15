@@ -10,6 +10,7 @@ public class ProjectileGun : MonoBehaviour
     public List<GameObject> activeBullets = new List<GameObject>(); //Bullets in magazine
 
     public List<GameObject> bulletUIElements = new List<GameObject>();
+    public Sprite emptyBulletUI;
 
     // Bullet force
     public float shootForce, upwardForce;
@@ -103,7 +104,8 @@ public class ProjectileGun : MonoBehaviour
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
-        bulletContainers.Remove(bulletContainers[0]);
+        activeBullets.Remove(activeBullets[0]);
+        UpdateBulletUI();
     }
 
     public void PopulateMagazine() //Det er her vi putter random bullets ind i magasinet
@@ -115,6 +117,20 @@ public class ProjectileGun : MonoBehaviour
 
             //Populate UI
             bulletUIElements[i].GetComponent<Image>().sprite = bulletContainers[temp].UIBullet;
+        }
+    }
+
+    public void UpdateBulletUI()
+    {
+        int bulletsLeft = activeBullets.Count;
+        for(int i = 0; i < bulletsLeft-1; i++) //Populate bullets into UI
+        {
+            bulletUIElements[i].GetComponent<Image>().sprite = bulletContainers[i].UIBullet;
+        }
+
+        for(int i = bulletsLeft; i < magazineSize; i++) //Populate rest of UI with emptyBulletUI element
+        {
+            bulletUIElements[i].GetComponent<Image>().sprite = emptyBulletUI;
         }
     }
 

@@ -54,6 +54,12 @@ public class InfectionBehaviour : MonoBehaviour
         UpdateInfectionUI();
     }
 
+    public void DamageInfection(float damageValue)
+    {
+        currentInfection += damageValue;
+        UpdateInfectionUI();
+    }
+
     IEnumerator InfectCD(float time)
     {
         hasInfected = true;
