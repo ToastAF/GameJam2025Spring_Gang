@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using static UnityEngine.GraphicsBuffer;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class WaveSpawner : MonoBehaviour
 
     public TMP_Text WaveText;
 
-    public List<ZombieSpawner> ZombieSpawners;
+    public GameObject Player;
+
+    public int ZombiesToSpawn;
+    public List<GameObject> ZombieSpawners;
     public List<GameObject> Zombies = new List<GameObject>();
 
     public GameObject ZombiePrefab;
@@ -19,10 +23,7 @@ public class WaveSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        foreach (var item in ZombieSpawners)
-        {
-            item.waveSpawner = this;
-        }
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -34,10 +35,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 Wave += 1;
 
-                for (int i = 0; i < 3 + 2 * Wave + Mathf.FloorToInt(Wave / 5); i++)
-                {
-                    ZombieSpawners[Random.Range(0, ZombieSpawners.Count)].Zombies.Add(ZombiePrefab);
-                }
+                ZombiesToSpawn = 3 + 2 * Wave + Mathf.FloorToInt(Wave / 5);
 
                 WaveText.text = "Wave" + "\n" + Wave;
                 WaveText.gameObject.SetActive(true);
@@ -53,15 +51,30 @@ public class WaveSpawner : MonoBehaviour
             if (Timer > 10)
             {
                 WaveText.gameObject.SetActive(false);
-                bool HasNoZombiesLeft = false;
 
-                foreach (var item in ZombieSpawners)
+                List<GameObject> ZombieSpawners2 = new List<GameObject>(ZombieSpawners);
+
+                for (int i = 0; i < ZombieSpawners.Count; i++)
                 {
-                    if (item.Zombies.Count != 0)
+                    if (ZombiesToSpawn > 0)
                     {
-                        HasNoZombiesLeft = true;
+                        if (ZombieSpawners2.Count > 0)
+                        {
+                            int _rr = Random.Range(0, ZombieSpawners2.Count);
 
-                        item.SpawnZombie();
+
+                            if (Vector3.Distance(ZombieSpawners2[_rr].transform.position, Player.transform.position) > 30)
+                            {
+                                GameObject Zombie = Instantiate(ZombiePrefab, ZombieSpawners2[_rr].transform.position, Quaternion.identity);
+                                Zombies.Add(Zombie);
+
+                                ZombiesToSpawn -= 1;
+                            }
+
+                            ZombieSpawners2.Remove(ZombieSpawners2[_rr]);
+
+                           
+                        }
                     }
                 }
 
@@ -76,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
                 Timer = 0;
 
 
-                if (HasNoZombiesLeft == false)
+                if (ZombiesToSpawn <= 0)
                 {
                     HasMadeWave = false;
                 }
