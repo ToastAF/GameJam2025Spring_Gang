@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class GunAnimation : MonoBehaviour
 {
-   
+   ProjectileGun gunScript;
+
    public Animator anim;
 
    //check this bool before running anything that shoots, it prevents firing mid animation
    public bool animationInPro=false;
    //For testing
-     /*  void Update()
+       void Update()
        {
-           if (Input.GetKeyDown(KeyCode.B)) 
+           /*if (Input.GetKeyDown(KeyCode.B)) 
            {
                shoot();
            }
@@ -18,8 +19,8 @@ public class GunAnimation : MonoBehaviour
            if (Input.GetKeyDown(KeyCode.G)) 
            {
                reload();
-           }
-       }*/
+           }*/
+       }
    
        public void shoot()
        {
@@ -41,6 +42,10 @@ public class GunAnimation : MonoBehaviour
        public void AnimationFin()
        {
            animationInPro = false;
+
+           gunScript.PopulateMagazine();
+           gunScript.reloading = false;
+           Debug.Log("Reloading done!");
        }
    
 }
