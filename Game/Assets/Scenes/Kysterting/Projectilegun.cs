@@ -143,4 +143,6 @@ public class ProjectileGun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
+
 }
