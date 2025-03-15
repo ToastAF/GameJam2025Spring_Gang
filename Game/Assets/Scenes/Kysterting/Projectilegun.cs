@@ -111,6 +111,9 @@ public class ProjectileGun : MonoBehaviour
 
     public void PopulateMagazine() //Det er her vi putter random bullets ind i magasinet
     {
+        activeBullets.Clear();
+        activeSprites.Clear();
+
         for (int i = 0; i < magazineSize; i++)
         {
             int temp = Random.Range(0, bulletContainers.Count);
@@ -147,9 +150,9 @@ public class ProjectileGun : MonoBehaviour
         reloading = true;
         Debug.Log("Reloading!");
         yield return new WaitForSeconds(time);
-        PopulateMagazine();
         bulletsLeft = magazineSize;
         Debug.Log("Done reloading!");
+        PopulateMagazine();
         reloading = false;
     }
 
