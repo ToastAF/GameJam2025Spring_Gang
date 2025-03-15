@@ -18,7 +18,7 @@ public class InfectionBehaviour : MonoBehaviour
     {
         currentInfection = 0;
         hasInfected = false;
-        UpdateInfection();
+        UpdateInfectionUI();
     }
 
     void Update()
@@ -46,6 +46,12 @@ public class InfectionBehaviour : MonoBehaviour
         float barWidth = currentInfection;
         Mathf.Clamp(barWidth, 0, maxInfection);
         infectionBarUI.sizeDelta = new Vector2(barWidth, infectionBarUI.sizeDelta.y);
+    }
+
+    public void HealInfection(float healValue)
+    {
+        currentInfection -= healValue; //We "heal"
+        UpdateInfectionUI();
     }
 
     IEnumerator InfectCD(float time)

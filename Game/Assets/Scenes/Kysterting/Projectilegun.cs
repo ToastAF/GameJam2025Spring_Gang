@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
 
 public class ProjectileGun : MonoBehaviour
 {
-    // Bullet list (random selection)
-    public List<GameObject> bullets = new List<GameObject>();
+    public List<BulletContainer> bulletContainers = new List<BulletContainer>(); //ALL Bullets
+    public List<GameObject> activeBullets = new List<GameObject>(); //Bullets in magazine
+
+    public List<GameObject> bulletUIElements = new List<GameObject>();
 
     // Bullet force
     public float shootForce, upwardForce;
@@ -37,7 +40,11 @@ public class ProjectileGun : MonoBehaviour
     {
         // Make sure the magazine is full
         bulletsLeft = magazineSize;
+        PopulateMagazine();
+
         readyToShoot = true;
+
+        Debug.Log(bulletContainers.Count);
     }
 
     private void Update()
@@ -70,7 +77,7 @@ public class ProjectileGun : MonoBehaviour
     {
         StartCoroutine(ShootCD(timeBetweenShots));
 
-        if (bullets.Count == 0) return; // Ensure list is not empty
+        if (bulletContainers.Count == 0) return; // Ensure list is not empty
 
         readyToShoot = false;
 
@@ -79,9 +86,9 @@ public class ProjectileGun : MonoBehaviour
         RaycastHit hit;
 
         // Determine target point
-        Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(75);
+        Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(75); //Bruger vi den her ?????????????
 
-        GameObject selectedBullet = bullets[Random.Range(0, bullets.Count)];  // Select a random bullet from the list
+        GameObject selectedBullet = bulletContainers[0].bullet;  // Select a random bullet from the list
 
         GameObject currentBullet = Instantiate(selectedBullet, attackPoint.position, Quaternion.identity);  // Instantiate the random bullet
 
@@ -96,8 +103,20 @@ public class ProjectileGun : MonoBehaviour
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
+        bulletContainers.Remove(bulletContainers[0]);
     }
 
+    public void PopulateMagazine() //Det er her vi putter random bullets ind i magasinet
+    {
+        for (int i = 0; i < magazineSize; i++)
+        {
+            int temp = Random.Range(0, bulletContainers.Count);
+            activeBullets.Add(bulletContainers[temp].bullet);
+
+            //Populate UI
+            bulletUIElements[i].GetComponent<Image>().sprite = bulletContainers[temp].UIBullet;
+        }
+    }
 
     private void Reload()
     {
@@ -110,14 +129,16 @@ public class ProjectileGun : MonoBehaviour
         reloading = true;
         Debug.Log("Reloading!");
         yield return new WaitForSeconds(time);
+        PopulateMagazine();
         bulletsLeft = magazineSize;
-        Debug.Log("Gun loaded!");
+        Debug.Log("Done reloading!");
         reloading = false;
     }
 
     IEnumerator ShootCD(float time)
     {
         readyToShoot = false;
+        Debug.Log("I shot!");
 
         yield return new WaitForSeconds(time);
         Debug.Log("I can shoot again!");

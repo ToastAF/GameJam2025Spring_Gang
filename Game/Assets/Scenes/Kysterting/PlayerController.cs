@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -101,6 +102,11 @@ public class PlayerController : MonoBehaviour
         if(consumingStamina == true)
         {
             currentStamina -= staminaConsumeRate * Time.fixedDeltaTime;
+
+            if (Mathf.Abs(rb.angularVelocity.magnitude) > 0) //Dette skal bruges til, at man kun dræner stamina NÅR man bevæger sig!
+            {
+               
+            }
         }
         else if(consumingStamina == false && currentStamina < maxStamina)
         {
