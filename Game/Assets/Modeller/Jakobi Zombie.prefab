@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jakobi Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 578714cd29ef5af40909266da871208a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1427564092133216371, guid: 578714cd29ef5af40909266da871208a, type: 3}
       propertyPath: m_Name
       value: rig.001
@@ -167,7 +171,6 @@ MonoBehaviour:
   Ani: {fileID: 0}
   target: {fileID: 0}
   detectionRange: 10
-  fieldOfViewAngle: 60
   WalkSpeed: 0.5
   RunSpeed: 5
   CrawlSpeed: 0.2

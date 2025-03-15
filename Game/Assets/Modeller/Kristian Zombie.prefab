@@ -1400,6 +1400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kristian Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7217268a45736b44860877c477c3bd9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 920198510596765919, guid: b7217268a45736b44860877c477c3bd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -63.086197
@@ -2595,7 +2599,6 @@ MonoBehaviour:
   Ani: {fileID: 0}
   target: {fileID: 0}
   detectionRange: 10
-  fieldOfViewAngle: 60
   WalkSpeed: 0.5
   RunSpeed: 5
   CrawlSpeed: 0.2
