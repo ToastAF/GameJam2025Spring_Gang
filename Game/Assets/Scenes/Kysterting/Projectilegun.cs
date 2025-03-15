@@ -92,9 +92,11 @@ public class ProjectileGun : MonoBehaviour
         // Determine target point
         Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(75); //Bruger vi den her ?????????????
 
-        GameObject selectedBullet = bulletContainers[0].bullet;  // Select a random bullet from the list
+        GameObject selectedBullet = activeBullets[0];  // Select a random bullet from the list
 
         GameObject currentBullet = Instantiate(selectedBullet, attackPoint.position, Quaternion.identity);  // Instantiate the random bullet
+
+        currentBullet.transform.LookAt(targetPoint);
 
         Rigidbody bulletRb = currentBullet.GetComponent<Rigidbody>();  // Add force to bullet
         if (bulletRb != null)
