@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 9124139886549331209, guid: a427081e886b3ec4cb2580ece3d626b3, type: 3}
+  alwaysVisibleWhite: {fileID: 1098057040584393534, guid: e0e4b188aa199ea4881f2932ff55d524, type: 3}
   destroyParent: {fileID: 8762645124661817271}
 --- !u!1 &8762645124661817271
 GameObject:

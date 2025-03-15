@@ -9,6 +9,8 @@ public class BouncyBallExplosion : MonoBehaviour
     private Material material;
     private float alpha = 1f;
 
+    public GameObject alwaysVisible;
+
     void Start()
     {
         // Get the material of the explosion sphere
@@ -27,6 +29,7 @@ public class BouncyBallExplosion : MonoBehaviour
         // Destroy the explosion when it's fully expanded or faded out
         if (transform.localScale.x >= maxSize || alpha <= 0)
         {
+            Destroy(alwaysVisible);
             Destroy(gameObject);
         }
     }
