@@ -65,6 +65,14 @@ public class WaveSpawner : MonoBehaviour
                     }
                 }
 
+                foreach (var item in Zombies.ToArray())
+                {
+                    if (item == null)
+                    {
+                        Zombies.Remove(item);
+                    }
+                }
+
                 Timer = 0;
 
 
