@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
     public List<GameObject> ZombieSpawners;
     public List<GameObject> Zombies = new List<GameObject>();
 
-    public GameObject ZombiePrefab;
+    public List<GameObject> ZombiePrefab;
     public bool HasMadeWave;
 
     public float Timer;
@@ -65,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
 
                             if (Vector3.Distance(ZombieSpawners2[_rr].transform.position, Player.transform.position) > 30)
                             {
-                                GameObject Zombie = Instantiate(ZombiePrefab, ZombieSpawners2[_rr].transform.position, Quaternion.identity);
+                                GameObject Zombie = Instantiate(ZombiePrefab[Random.Range(0, ZombiePrefab.Count)], ZombieSpawners2[_rr].transform.position, Quaternion.identity);
                                 Zombies.Add(Zombie);
 
                                 ZombiesToSpawn -= 1;

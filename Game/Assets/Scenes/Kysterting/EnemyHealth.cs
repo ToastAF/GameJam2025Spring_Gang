@@ -6,9 +6,13 @@ public class EnemyHealth : MonoBehaviour
 
     public int health = 100;
 
+    AI_Movement AI_Movement;
+
     private void Start()
     {
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
+
+        AI_Movement = FindAnyObjectByType<AI_Movement>();
     }
 
     public void TakeDamage(int damage)
@@ -20,13 +24,26 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            int _rr = Random.Range(1, 21);
+            if (_rr == 1)
+            {
+                AI_Movement.Cripel = true;
+            }
+            else
+            {
+                AI_Movement.Ani.SetBool("Hit", true);
+            }
+
+            AI_Movement.WaitAMoment = true;
+        }
     }
 
     private void Die()
     {
         waveSpawner.Zombies.Remove(this.gameObject);
-
-        Debug.Log(gameObject.name + " has died!");
-        Destroy(gameObject); // Replace with death animation if needed
+        AI_Movement.Ani.SetBool("Death", true);
+        AI_Movement.Death = true;
     }
 }

@@ -4,110 +4,118 @@ using UnityEngine.AI;
 
 public class AI_Movement : MonoBehaviour
 {
+    InfectionBehaviour infectionBehaviour;
+
+    public Animator Ani;
+
     public Transform target;
     public float detectionRange = 10f;
-    public float fieldOfViewAngle = 60f;
-    Vector3 WounderingPos;
 
     public float WalkSpeed;
     public float RunSpeed;
+    public float CrawlSpeed;
 
     private NavMeshAgent agent;
-    private bool isChasing = false;
 
     public bool HasAddedOneTooAmountOfZombies;
     public float InfectRange;
 
+    public bool Cripel;
+
+    public bool Death;
+
+    public bool WaitAMoment;
+    public float MomentTimer;
 
     void Start()
     {
+        WalkSpeed = Random.Range(0.40f, 0.61f);
+        RunSpeed = Random.Range(4.0f, 6.1f);
+
+        Ani = GetComponent<Animator>();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        infectionBehaviour = FindAnyObjectByType<InfectionBehaviour>();
 
         // Get the NavMeshAgent component attached to the character
         agent = GetComponent<NavMeshAgent>();
-
-        GetNewDirection();
+        agent.SetDestination(target.position);
     }
 
     void Update()
     {
+        if (Death == true)
+        {
+            return;
+        }
+
+        if (WaitAMoment == true)
+        {
+            MomentTimer += Time.deltaTime;
+
+            if (MomentTimer > 1)
+            {
+                Ani.SetBool("Attack", false);
+                Ani.SetBool("Hit", false);
+                MomentTimer = 0;
+                WaitAMoment = false;
+            }
+            return;
+        }
+
         if (agent != null && target != null)
         {
-            if (CanSeeTarget() == true)
+            if (Cripel == false)
             {
-                isChasing = true;
-            }
-            else if (Vector3.Distance(transform.position, target.position) > detectionRange)
-            {
-                isChasing = false;
-            }
+                if (Vector3.Distance(transform.position, target.position) <= detectionRange)
+                {
+                    agent.speed = RunSpeed;
 
-            if (isChasing == true)
-            {
-                agent.SetDestination(target.position);
+                    Ani.SetBool("Run", true);
+                    Ani.SetBool("Walk", false);
 
-                agent.speed = RunSpeed;
+                    if (Vector3.Distance(transform.position, target.position) < .5f)
+                    {
+                        Ani.SetBool("Attack", true);
+                        WaitAMoment = true;
+                        infectionBehaviour.DamageInfection(5);
+                    }
+                }
+                else
+                {
+                    agent.speed = WalkSpeed;
+
+                    Ani.SetBool("Run", false);
+                    Ani.SetBool("Walk", true);
+                }
             }
             else
             {
-                agent.speed = WalkSpeed;
+                agent.speed = CrawlSpeed;
 
-                if (Vector3.Distance(transform.position, WounderingPos) < .1)
+                Ani.SetBool("Run", false);
+                Ani.SetBool("Walk", false);
+                Ani.SetBool("Crawl", true);
+            }
+
+            if (Vector3.Distance(transform.position, target.position) <= InfectRange)
+            {
+                if (HasAddedOneTooAmountOfZombies == false)
                 {
-                    GetNewDirection();
+                    infectionBehaviour.amountOfZombiesNearby += 1;
+                    HasAddedOneTooAmountOfZombies = true;
+                }
+            }
+            else
+            {
+                if (HasAddedOneTooAmountOfZombies == true)
+                {
+                    infectionBehaviour.amountOfZombiesNearby -= 1;
+                    HasAddedOneTooAmountOfZombies = false;
                 }
             }
         }
-
-        if (Vector3.Distance(transform.position, target.position) <= InfectRange)
-        {
-            if (HasAddedOneTooAmountOfZombies == false)
-            {
-                //Jakobs kode +1
-                HasAddedOneTooAmountOfZombies = true;
-            }
-        }
-        else
-        {
-            if (HasAddedOneTooAmountOfZombies == true)
-            {
-                //Jakobs kode -1
-                HasAddedOneTooAmountOfZombies = false;
-            }
-        }
-    }
-
-    void GetNewDirection()
-    {
-        Vector3 posCloseToPlayer = new Vector3(target.position.x + Random.Range(-40, 41), target.position.y + Random.Range(-40, 41), target.position.z + Random.Range(-40, 41));
-
-        if (NavMesh.SamplePosition(posCloseToPlayer, out NavMeshHit hit, 100, NavMesh.AllAreas))
-        {
-            WounderingPos = hit.position;
-
-            agent.SetDestination(WounderingPos);
-        }
-    }
-
-    bool CanSeeTarget()
-    {
-        Vector3 directionToTarget = target.position - transform.position;
-        float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-
-        if (angleToTarget <= fieldOfViewAngle * 0.5f && directionToTarget.magnitude <= detectionRange)
-        {
-            RaycastHit hit;
-            int layerMask = ~LayerMask.GetMask("Obstacle"); // This ignores the Obstacle layer
-
-            if (Physics.Raycast(transform.position, directionToTarget.normalized, out hit, detectionRange, layerMask))
-            {
-                if (hit.transform == target)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }
 
