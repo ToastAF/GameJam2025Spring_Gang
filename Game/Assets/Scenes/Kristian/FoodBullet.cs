@@ -40,7 +40,7 @@ public class Food : MonoBehaviour
             }
             else
             {
-                infectionBehaviour.currentInfection -= 10; //Change this to INFECTION LATER!!!!
+                infectionBehaviour.HealInfection(10);
             }
 
             AudioSource audioSource = other.GetComponent<AudioSource>();
