@@ -10,6 +10,7 @@ public class ProjectileGun : MonoBehaviour
     public List<GameObject> activeBullets = new List<GameObject>(); //Bullets in magazine
 
     public List<GameObject> bulletUIElements = new List<GameObject>();
+    public List<Sprite> activeSprites = new List<Sprite>();
     public Sprite emptyBulletUI;
 
     // Bullet force
@@ -116,22 +117,23 @@ public class ProjectileGun : MonoBehaviour
             activeBullets.Add(bulletContainers[temp].bullet);
 
             //Populate UI
-            bulletUIElements[i].GetComponent<Image>().sprite = bulletContainers[temp].UIBullet;
+            activeSprites.Add(bulletContainers[temp].UIBullet);
+            UpdateBulletUI();
         }
     }
 
     public void UpdateBulletUI()
     {
         int bulletsLeft = activeBullets.Count;
-        for(int i = 0; i < bulletsLeft-1; i++) //Populate bullets into UI
+        for(int i = 0; i < bulletsLeft; i++) //Populate bullets into UI
         {
-            bulletUIElements[i].GetComponent<Image>().sprite = bulletContainers[i].UIBullet;
+            bulletUIElements[i].GetComponent<Image>().sprite = activeSprites[i];
         }
 
         for(int i = bulletsLeft; i < magazineSize; i++) //Populate rest of UI with emptyBulletUI element
         {
             bulletUIElements[i].GetComponent<Image>().sprite = emptyBulletUI;
-        }
+        }        
     }
 
     private void Reload()
