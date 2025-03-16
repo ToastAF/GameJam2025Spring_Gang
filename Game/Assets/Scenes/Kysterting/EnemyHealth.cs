@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
 
-        AI_Movement = FindAnyObjectByType<AI_Movement>();
+        AI_Movement = GetComponent<AI_Movement>();
     }
 
     public void TakeDamage(int damage)
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            Die();     
         }
         else
         {
@@ -52,9 +52,15 @@ public class EnemyHealth : MonoBehaviour
         
         GetComponent<Rigidbody>().isKinematic = true;
 
-        Instantiate(HealthPackPrefab, transform.position, transform.rotation);
 
+        int _rr = Random.Range(1, 101);
 
+        if (_rr > 80)
+        {
+            Instantiate(HealthPackPrefab, transform.position, Quaternion.identity);
+        }
+
+        Debug.Log(gameObject.name + " Dead ");
     }
 
     IEnumerator PlayRandomSound()

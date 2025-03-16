@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  HealthPackPrefab: {fileID: 0}
+  HealthPackPrefab: {fileID: 477290325394325456, guid: 4ef284557130a7b4db0a9eb03068a231, type: 3}
 --- !u!65 &-2977359459747486905
 BoxCollider:
   m_ObjectHideFlags: 0
