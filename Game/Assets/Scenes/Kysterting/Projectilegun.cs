@@ -17,7 +17,7 @@ public class ProjectileGun : MonoBehaviour
 
     int bulletCounter = 0;
 
-    public AudioSource gunSound;
+    public AudioSource gunSound, reloadSound;
 
     // Bullet force
     public float shootForce, upwardForce;
@@ -165,6 +165,7 @@ public class ProjectileGun : MonoBehaviour
         Debug.Log("Start reloading!");
         //Now we call the reload animation
         gunAniScript.reload();
+        reloadSound.Play();
         
         //Old Reloading
         //StartCoroutine(ReloadCD(reloadTime));

@@ -14,6 +14,8 @@ public class GunBulletScript : MonoBehaviour
     GameObject selectedBullet;
     public Transform attackPoint;
 
+    AudioSource gunSound;
+
     void Start()
     {
         x = Random.Range(0, maxSpinValue*2);
@@ -27,6 +29,8 @@ public class GunBulletScript : MonoBehaviour
         bulletContainers = gunScript.bulletContainers;
 
         StartCoroutine(WaitForShoot());
+
+        gunSound = GetComponent<AudioSource>();
     }
 
     public void Shoot()
@@ -41,6 +45,7 @@ public class GunBulletScript : MonoBehaviour
             bulletRb.AddForce(transform.forward * 100, ForceMode.Impulse);
             bulletRb.AddForce(transform.up * 10, ForceMode.Impulse);
         }
+        gunSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
