@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class ZombieSounds : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ZombieSounds : MonoBehaviour
     {
         // Add an AudioSource component to the game object
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.spatialBlend = 1;
+
         // Start the coroutine to play sounds randomly
         StartCoroutine(PlayRandomSound());
     }
@@ -19,10 +22,10 @@ public class ZombieSounds : MonoBehaviour
         while (true)
         {
             // Wait for one minute
-            yield return new WaitForSeconds(Random.Range(20, 60));
+            yield return new WaitForSeconds(Random.Range(10, 60));
 
             // 50% chance to play a random sound
-            if (Random.value > 0.9f && soundClips.Length > 0)
+            if (Random.value > 0.7f && soundClips.Length > 0)
             {
                 AudioClip clip = soundClips[Random.Range(0, soundClips.Length)];
                 audioSource.PlayOneShot(clip);

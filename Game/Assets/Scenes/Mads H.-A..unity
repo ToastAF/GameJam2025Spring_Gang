@@ -714,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f0fb50fd3ce1f184584f2b150f85b2c9, type: 2}
     - target: {fileID: 919132149155446097, guid: ce53472fae3a6df41b9bd9c447d0f468, type: 3}
       propertyPath: m_Name
-      value: Locker
+      value: Locker Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: ce53472fae3a6df41b9bd9c447d0f468, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1021,6 +1021,177 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93baa65a7bdcbf64792527231275207e, type: 3}
+--- !u!1001 &5945340445892113288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1703542034570650520, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_Name
+      value: Burger Poster Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8555026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00005125693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00005143797
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628580377446712793, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.0079956055
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4796d60cce532c4da7da1ff08e3ffe5, type: 3}
+--- !u!1001 &5978023585780526690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1975675008336620655, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_Name
+      value: Boat Poster Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2355022
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00005125693
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00005143797
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798269876570286942, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.0079956055
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 091e8ee8eaf8f5240beb5cc8c84b7a92, type: 3}
+--- !u!1001 &5987688850041019263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2880330105499857324, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_Name
+      value: Dog Poster Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00005125693
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00005143797
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177187730683281753, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.0079956055
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 346365e6d2ba4b249befeb6712bce6c2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1032,3 +1203,6 @@ SceneRoots:
   - {fileID: 723377752}
   - {fileID: 979920790}
   - {fileID: 1472228135}
+  - {fileID: 5987688850041019263}
+  - {fileID: 5945340445892113288}
+  - {fileID: 5978023585780526690}

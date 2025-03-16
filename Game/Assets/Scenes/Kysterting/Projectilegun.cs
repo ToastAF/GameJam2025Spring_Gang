@@ -15,6 +15,10 @@ public class ProjectileGun : MonoBehaviour
 
     public GunAnimation gunAniScript;
 
+    int bulletCounter = 0;
+
+    public AudioSource gunSound;
+
     // Bullet force
     public float shootForce, upwardForce;
 
@@ -49,6 +53,8 @@ public class ProjectileGun : MonoBehaviour
         readyToShoot = true;
 
         Debug.Log(bulletContainers.Count);
+
+        gunSound = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -81,6 +87,8 @@ public class ProjectileGun : MonoBehaviour
 
         if (bulletContainers.Count == 0) return; // Ensure list is not empty
 
+        gunSound.Play(); //Play BaNG
+
         readyToShoot = false;
 
         // Find the exact hit position using a raycast
@@ -90,7 +98,7 @@ public class ProjectileGun : MonoBehaviour
         // Determine target point
         Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(75); //Bruger vi den her ?????????????
 
-        GameObject selectedBullet = activeBullets[activeBullets.Count-1];  // Select a random bullet from the list
+        GameObject selectedBullet = activeBullets[bulletCounter];  // Select next bullet from the list
 
         GameObject currentBullet = Instantiate(selectedBullet, attackPoint.position, Quaternion.identity);  // Instantiate the random bullet
 
@@ -109,8 +117,13 @@ public class ProjectileGun : MonoBehaviour
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
-        activeBullets.Remove(activeBullets[activeBullets.Count - 1]);
+        //activeBullets.RemoveAt(0);
+        activeSprites.RemoveAt(0);
         UpdateBulletUI();
+        StartCoroutine(MuzzleFlash());
+
+        bulletCounter++;
+        Debug.Log("Current bullet counter: " + bulletCounter);
     }
 
     public void PopulateMagazine() //Det er her vi putter random bullets ind i magasinet
@@ -133,13 +146,13 @@ public class ProjectileGun : MonoBehaviour
 
     public void UpdateBulletUI()
     {
-        int bulletsLeft = activeBullets.Count;
-        for(int i = 0; i < bulletsLeft; i++) //Populate bullets into UI
+        int spritesLeft = activeSprites.Count;
+        for(int i = 0; i < spritesLeft; i++) //Populate bullets into UI
         {
             bulletUIElements[i].GetComponent<Image>().sprite = activeSprites[i];
         }
 
-        for (int i = bulletsLeft; i < magazineSize; i++) //Populate rest of UI with emptyBulletUI element
+        for (int i = spritesLeft; i < 6; i++) //Populate rest of UI with emptyBulletUI element
         {
             bulletUIElements[i].GetComponent<Image>().sprite = emptyBulletUI;
         }
@@ -148,6 +161,7 @@ public class ProjectileGun : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        bulletCounter = 0; //Reset bullet counter
         Debug.Log("Start reloading!");
         //Now we call the reload animation
         gunAniScript.reload();
@@ -177,5 +191,13 @@ public class ProjectileGun : MonoBehaviour
         //Debug.Log("I can shoot again!");
         readyToShoot = true;
 
+    }
+
+    IEnumerator MuzzleFlash()
+    {
+        yield return new WaitForSeconds(0.05f);
+        muzzleFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        muzzleFlash.SetActive(false);
     }
 }

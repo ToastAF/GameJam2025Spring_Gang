@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3db7c1741b29cf48b7d539d0341765b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eatSound: {fileID: 8300000, guid: 6823067ec6dc6f84293d3387ca213f78, type: 3}
+  eatSound: {fileID: 8300000, guid: 41f9429a8ef8b7b49a1cc5b35600d68f, type: 3}
 --- !u!1001 &619988689376715055
 PrefabInstance:
   m_ObjectHideFlags: 0
