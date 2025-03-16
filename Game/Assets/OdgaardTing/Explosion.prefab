@@ -126,6 +126,7 @@ MonoBehaviour:
   expansionSpeed: 14
   maxSize: 20
   fadeSpeed: 2
+  alwaysVisible: {fileID: 0}
 --- !u!114 &7086188940769814933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c017a60534902304f820185da1f98d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 40
 --- !u!54 &991159199039927569
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public int health = 100;
 
     AI_Movement AI_Movement;
+
+    public GameObject HealthPackPrefab;
 
     private void Start()
     {
@@ -45,5 +49,18 @@ public class EnemyHealth : MonoBehaviour
         waveSpawner.Zombies.Remove(this.gameObject);
         AI_Movement.Ani.SetBool("Death", true);
         AI_Movement.Death = true;
+        
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        Instantiate(HealthPackPrefab, transform.position, transform.rotation);
+
+
+    }
+
+    IEnumerator PlayRandomSound()
+    {
+        yield return new WaitForSeconds(60);
+
+        Destroy(this.gameObject);
     }
 }

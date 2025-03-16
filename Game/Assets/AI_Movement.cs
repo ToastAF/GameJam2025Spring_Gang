@@ -47,6 +47,7 @@ public class AI_Movement : MonoBehaviour
     {
         if (Death == true)
         {
+            agent.SetDestination(transform.position);
             return;
         }
 

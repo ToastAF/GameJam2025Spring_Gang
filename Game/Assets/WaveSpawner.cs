@@ -8,6 +8,8 @@ public class WaveSpawner : MonoBehaviour
     public int Wave;
 
     public TMP_Text WaveText;
+    public GameObject DeathScreen;
+    public TMP_Text DeathScreenText;
 
     public GameObject Player;
 
@@ -38,6 +40,7 @@ public class WaveSpawner : MonoBehaviour
                 ZombiesToSpawn = 3 + 2 * Wave + Mathf.FloorToInt(Wave / 5);
 
                 WaveText.text = "Wave" + "\n" + Wave;
+                DeathScreenText.text = "You" + "\n" + "Survived" + "\n" + "to" + "\n" + "Wave" + "\n" + Wave;
                 WaveText.gameObject.SetActive(true);
 
                 Timer = 0;

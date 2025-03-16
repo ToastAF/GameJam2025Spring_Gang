@@ -79,6 +79,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aed5771fd2c7964c86a619c1e94cc37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4466749389569611859}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aed5771fd2c7964c86a619c1e94cc37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 54001434767880634}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aed5771fd2c7964c86a619c1e94cc37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3283865864345389927}
   m_SourcePrefab: {fileID: 100100000, guid: 8aed5771fd2c7964c86a619c1e94cc37, type: 3}
 --- !u!1 &7244249807396421539 stripped
 GameObject:
@@ -193,3 +199,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  HealthPackPrefab: {fileID: 0}
+--- !u!114 &54001434767880634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244249807396421539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9488a12962afe49a985a88b8fdc0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClips:
+  - {fileID: 8300000, guid: 420a8a8080d2ab24fab46e848f5b03d9, type: 3}
+  - {fileID: 8300000, guid: ebaf61787794778459ddb916bfdaaa18, type: 3}
+  - {fileID: 8300000, guid: 403378ab9f722cd4aae584cd0f92c627, type: 3}
+  - {fileID: 8300000, guid: 94c412742a63eae4c8d4771f2850034c, type: 3}
+  - {fileID: 8300000, guid: 6f962f99f828ddf4f9f5547ae25075de, type: 3}
+--- !u!65 &-3283865864345389927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244249807396421539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.57714194, y: 1.4948719, z: 0.44964683}
+  m_Center: {x: 0.0056852996, y: 1.0282775, z: 0.0018133223}

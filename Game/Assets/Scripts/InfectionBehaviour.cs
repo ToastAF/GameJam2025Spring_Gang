@@ -14,8 +14,12 @@ public class InfectionBehaviour : MonoBehaviour
 
     public RectTransform infectionBarUI;
 
+    public WaveSpawner waveSpawner;
+
     void Start()
     {
+        waveSpawner = FindAnyObjectByType<WaveSpawner>();
+
         currentInfection = 0;
         hasInfected = false;
         UpdateInfectionUI();
@@ -27,7 +31,7 @@ public class InfectionBehaviour : MonoBehaviour
 
         if(currentInfection >= maxInfection)
         {
-            Debug.Log("You died!");
+            waveSpawner.DeathScreen.SetActive(true);
         }
     }
 
