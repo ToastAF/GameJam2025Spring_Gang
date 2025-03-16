@@ -16,6 +16,10 @@ public class InfectionBehaviour : MonoBehaviour
 
     public WaveSpawner waveSpawner;
 
+    private AudioSource audioSourceGameplay;
+
+    private AudioSource audioSourceZombiesClose;
+
     void Start()
     {
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
@@ -33,6 +37,35 @@ public class InfectionBehaviour : MonoBehaviour
         {
             waveSpawner.DeathScreen.SetActive(true);
         }
+
+        if (amountOfZombiesNearby > 10)
+        {
+            if (audioSourceGameplay.volume > 0f)
+            {
+                audioSourceGameplay.volume -= 0.02f;
+                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.5f);
+            }
+            
+            if (audioSourceZombiesClose.volume < 0.5f)
+            {
+                audioSourceZombiesClose.volume += 0.02f;
+                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.5f);
+            }
+        }
+        else if (amountOfZombiesNearby < 10)
+        {
+            if (audioSourceGameplay.volume < 0.5f)
+            {
+                audioSourceGameplay.volume += 0.02f;
+                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.5f);
+            }
+            if (audioSourceZombiesClose.volume > 0f)
+            {
+                audioSourceZombiesClose.volume -= 0.02f;
+                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.5f);
+            }
+        }
+
     }
 
     public void UpdateInfection()
