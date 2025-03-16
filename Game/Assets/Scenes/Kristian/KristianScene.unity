@@ -595,6 +595,92 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &935875850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+  m_PrefabInstance: {fileID: 956800845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &956800845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1799127352}
+    m_Modifications:
+    - target: {fileID: -7228716287632914978, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 0284e0fe9b26b5e4f95307e03ee59ec1, type: 3}
+    - target: {fileID: -7228716287632914978, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0284e0fe9b26b5e4f95307e03ee59ec1, type: 3}
+    - target: {fileID: -7228716287632914978, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658802929218253859, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_Name
+      value: PlayerFootstepController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003140529710901468, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236008072968072081, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: stepInterval
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236008072968072081, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: 'footstepSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 058d5c6b9f87d4140ba973da13084462, type: 3}
+    - target: {fileID: 7236008072968072081, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
+      propertyPath: 'footstepSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d80209280cbd1246b00e4a315b59708, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a4078cc5116abc4baee1558b79f7a55, type: 3}
 --- !u!1 &1458750832
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,20 +795,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa56018618abe42bca85467edc1aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbers:
-  - {fileID: 4818908480778127344, guid: 24d0690cb07a8fa4986728347f99fa80, type: 3}
-  - {fileID: 4818908480778127344, guid: 24d0690cb07a8fa4986728347f99fa80, type: 3}
-  - {fileID: 4818908480778127344, guid: 24d0690cb07a8fa4986728347f99fa80, type: 3}
+  bulletContainers: []
+  activeBullets: []
+  bulletUIElements: []
+  activeSprites: []
+  emptyBulletUI: {fileID: 0}
+  gunAniScript: {fileID: 0}
   shootForce: 50
   upwardForce: 3
-  timeBetweenShooting: 1
-  spread: 6
   reloadTime: 2
   timeBetweenShots: 2
   magazineSize: 4
-  bulletsPerTap: 1
-  allowButtonHold: 1
   playerRb: {fileID: 1799127348}
+  shooting: 0
+  readyToShoot: 0
+  reloading: 0
   fpsCam: {fileID: 27564213}
   attackPoint: {fileID: 1497952866}
   muzzleFlash: {fileID: 0}
@@ -922,8 +1009,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  runModifier: 0
   sensitivity: 2
   cameraTransform: {fileID: 27564216}
+  currentStamina: 0
+  maxStamina: 0
+  staminaRegainRate: 0
+  staminaConsumeRate: 0
+  staminaBarUI: {fileID: 0}
 --- !u!54 &1799127348
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1041,6 +1134,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 27564216}
+  - {fileID: 935875850}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1799127353
