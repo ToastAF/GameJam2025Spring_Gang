@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 796245531}
   - component: {fileID: 796245530}
   - component: {fileID: 796245529}
+  - component: {fileID: 796245532}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1088,7 +1089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -754, y: 231}
+  m_AnchoredPosition: {x: -754, y: 77}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796245529
@@ -1173,6 +1174,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796245527}
   m_CullTransparentMesh: 1
+--- !u!114 &796245532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796245527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e276c473b1884d45b03b1f055fcd206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeSceneButton: {fileID: 796245529}
+  sceneName: Final
 --- !u!1 &940640999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,7 +6364,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Poombies
+  m_text: 'Zombie Surprise shooter
+
+    Reloaded'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb29557fa64064e4b84e3ae1604081dd, type: 2}
   m_sharedMaterial: {fileID: -4759374563167486136, guid: bb29557fa64064e4b84e3ae1604081dd, type: 2}
@@ -6414,7 +6431,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -351.2848, w: 0}
+  m_margin: {x: 0, y: 0, z: -1712.1365, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6872,7 +6889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -644, y: 98}
+  m_AnchoredPosition: {x: -644, y: -56}
   m_SizeDelta: {x: 342.9892, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457557501

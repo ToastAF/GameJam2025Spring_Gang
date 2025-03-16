@@ -62,7 +62,7 @@ MonoBehaviour:
   explosionForce: 30
   maxCollisions: 60
   maxLifetime: 10
-  explodeOnTouch: 1
+  explodeOnTouch: 0
 --- !u!54 &4684238671945610312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a8d78ca6229601f4c95f826da4ad33e7, type: 3}
   m_Resource: {fileID: 8300000, guid: a8d78ca6229601f4c95f826da4ad33e7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -52,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         
         GetComponent<Rigidbody>().isKinematic = true;
 
+        FindAnyObjectByType<InfectionBehaviour>().amountOfZombiesNearby -= 1;
 
         int _rr = Random.Range(1, 101);
 

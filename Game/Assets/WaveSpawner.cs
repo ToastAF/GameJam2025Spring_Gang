@@ -35,6 +35,8 @@ public class WaveSpawner : MonoBehaviour
         {
             if (Zombies.Count == 0)
             {
+                FindAnyObjectByType<InfectionBehaviour>().amountOfZombiesNearby = 0;
+
                 Wave += 1;
 
                 ZombiesToSpawn = 3 + 2 * Wave + Mathf.FloorToInt(Wave / 5);

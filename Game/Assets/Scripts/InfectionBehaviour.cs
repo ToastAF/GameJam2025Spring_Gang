@@ -3,6 +3,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class InfectionBehaviour : MonoBehaviour
 {
@@ -17,8 +18,10 @@ public class InfectionBehaviour : MonoBehaviour
     public WaveSpawner waveSpawner;
 
     private AudioSource audioSourceGameplay;
+    public AudioClip audioClipSourceGameplay;
 
     private AudioSource audioSourceZombiesClose;
+    public AudioClip audioClipSourceZombiesClose;
 
     void Start()
     {
@@ -27,6 +30,19 @@ public class InfectionBehaviour : MonoBehaviour
         currentInfection = 0;
         hasInfected = false;
         UpdateInfectionUI();
+
+        audioSourceGameplay = gameObject.AddComponent<AudioSource>();
+        audioSourceGameplay.clip = audioClipSourceGameplay;
+        audioSourceGameplay.loop = true;
+        audioSourceGameplay.volume = 0;
+        audioSourceGameplay.Play();
+
+
+        audioSourceZombiesClose = gameObject.AddComponent<AudioSource>();
+        audioSourceZombiesClose.clip = audioClipSourceZombiesClose;
+        audioSourceZombiesClose.loop = true;
+        audioSourceZombiesClose.volume = 0;
+        audioSourceZombiesClose.Play();
     }
 
     void Update()
@@ -38,31 +54,31 @@ public class InfectionBehaviour : MonoBehaviour
             waveSpawner.DeathScreen.SetActive(true);
         }
 
-        if (amountOfZombiesNearby > 10)
+        if (amountOfZombiesNearby > 1)
         {
             if (audioSourceGameplay.volume > 0f)
             {
-                audioSourceGameplay.volume -= 0.02f;
-                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.5f);
+                audioSourceGameplay.volume -= 0.002f;
+                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.05f);
             }
             
-            if (audioSourceZombiesClose.volume < 0.5f)
+            if (audioSourceZombiesClose.volume < 0.05f)
             {
-                audioSourceZombiesClose.volume += 0.02f;
-                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.5f);
+                audioSourceZombiesClose.volume += 0.002f;
+                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.1f);
             }
         }
-        else if (amountOfZombiesNearby < 10)
+        else if (amountOfZombiesNearby <= 1)
         {
-            if (audioSourceGameplay.volume < 0.5f)
+            if (audioSourceGameplay.volume < 0.05f)
             {
-                audioSourceGameplay.volume += 0.02f;
-                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.5f);
+                audioSourceGameplay.volume += 0.002f;
+                audioSourceGameplay.volume = Mathf.Clamp(audioSourceGameplay.volume, 0f, 0.05f);
             }
             if (audioSourceZombiesClose.volume > 0f)
             {
-                audioSourceZombiesClose.volume -= 0.02f;
-                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.5f);
+                audioSourceZombiesClose.volume -= 0.002f;
+                audioSourceZombiesClose.volume = Mathf.Clamp(audioSourceZombiesClose.volume, 0f, 0.1f);
             }
         }
 
