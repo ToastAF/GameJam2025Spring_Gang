@@ -30,7 +30,7 @@ public class AI_Movement : MonoBehaviour
     void Start()
     {
         WalkSpeed = Random.Range(0.40f, 0.61f);
-        RunSpeed = Random.Range(4.0f, 6.1f);
+        RunSpeed = Random.Range(1.0f, 2.1f);
 
         Ani = GetComponent<Animator>();
 
@@ -77,7 +77,7 @@ public class AI_Movement : MonoBehaviour
                     Ani.SetBool("Run", true);
                     Ani.SetBool("Walk", false);
 
-                    if (Vector3.Distance(transform.position, target.position) < .5f)
+                    if (Vector3.Distance(transform.position, target.position) < 3f)
                     {
                         Ani.SetBool("Attack", true);
                         WaitAMoment = true;
