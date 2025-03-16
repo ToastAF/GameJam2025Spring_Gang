@@ -1611,9 +1611,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dada6f44d5fd84ca60ad6780d380e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  runModifier: 3
-  sensitivity: 10
+  moveSpeed: 3
+  runModifier: 2
+  sensitivity: 4
   cameraTransform: {fileID: 55203286}
   currentStamina: 0
   maxStamina: 100
