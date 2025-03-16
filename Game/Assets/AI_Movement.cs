@@ -35,12 +35,11 @@ public class AI_Movement : MonoBehaviour
         Ani = GetComponent<Animator>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
+        
         infectionBehaviour = FindAnyObjectByType<InfectionBehaviour>();
 
         // Get the NavMeshAgent component attached to the character
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(target.position);
     }
 
     void Update()
@@ -67,6 +66,8 @@ public class AI_Movement : MonoBehaviour
 
         if (agent != null && target != null)
         {
+            agent.SetDestination(target.position);
+
             if (Cripel == false)
             {
                 if (Vector3.Distance(transform.position, target.position) <= detectionRange)
