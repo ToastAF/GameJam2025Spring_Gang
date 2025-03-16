@@ -16,6 +16,7 @@ public class Food : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
+
         if (eatSound != null)
         {
             audioSource.clip = eatSound;
